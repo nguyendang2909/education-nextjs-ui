@@ -1,0 +1,27 @@
+import Slider from 'react-slick';
+import { Box } from '@mui/material';
+import { FC } from 'react';
+import Banner1 from '../../../public/static/banners/banner1.png';
+import Banner2 from '../../../public/static/banners/banner2.png';
+import Banner3 from '../../../public/static/banners/banner3.png';
+import Banner4 from '../../../public/static/banners/banner4.png';
+import Image from 'next/image';
+
+export const AppBannerSlider: FC = () => {
+  return (
+    <Slider dots slidesToShow={1} slidesToScroll={1} arrows={false}>
+      <Box>
+        <Image src={Banner1} alt="banner" />
+      </Box>
+      <Box>
+        <Image src={Banner2} alt="banner" />
+      </Box>
+      <Box>
+        <Image src={Banner3} alt="banner" />
+      </Box>
+      <Box>
+        <Image src={Banner4} alt="banner" />
+      </Box>
+    </Slider>
+  );
+};

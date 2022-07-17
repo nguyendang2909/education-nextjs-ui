@@ -1,0 +1,33 @@
+{
+  "compilerOptions": {
+    "target": "es5",
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext",
+      "es2017"
+    ],
+    "allowJs": true,
+    "skipLibCheck": true,
+    "strict": true,
+    "forceConsistentCasingInFileNames": true,
+    "noEmit": true,
+    "esModuleInterop": true,
+    "module": "esnext",
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "jsx": "preserve",
+    "incremental": true,
+    "noFallthroughCasesInSwitch": true,
+    "strictNullChecks": true,
+  },
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx"
+, "src/components/Bar/Searchbar.hs", "src/lib/sdk/init-facebook.sdk.js", "src/index.js", "src/components/Menu/CourseCategoriesHorizontalMenu.tsx.temp", "src/modules/Banner/AppBannerSlider.tsx.temp"  ],
+  "exclude": [
+    "node_modules"
+  ]
+}

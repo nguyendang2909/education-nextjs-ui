@@ -1,0 +1,64 @@
+import { Card, Link, List, ListItem, useTheme } from '@mui/material';
+import { FC, Fragment } from 'react';
+import NextLink from 'next/link';
+import { courseCategoriesService } from '../../lib/course-categories.service';
+import { setMessage } from '../../lib/messages';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { CourseCategoryData } from '../../types/fetch-data.type';
+
+type CourseCategoriesHorizontalMenuProps = {
+  data: CourseCategoryData[];
+};
+
+export const CourseCategoriesHorizontalMenu: FC<
+  CourseCategoriesHorizontalMenuProps
+> = ({ data }) => {
+  const theme = useTheme();
+
+  return (
+    <Card>
+      <List
+        sx={{
+          display: 'flex',
+          flexDirection: 'row',
+          overflow: 'auto',
+          // width: 'calc(100% - 40px)',
+          marginLeft: 'auto',
+          [theme.breakpoints.down('sm')]: {
+            '&::-webkit-scrollbar': {
+              display: 'none',
+            },
+          },
+        }}
+      >
+        {data.map((courseCategory, index) => {
+          const { id, name, icon } = courseCategory;
+
+          return (
+            <Fragment key={index}>
+              {!!id && (
+                <ListItem sx={{ width: 'auto' }}>
+                  <NextLink
+                    href={courseCategoriesService.getPageLinkFromIdAndName(
+                      id,
+                      name,
+                    )}
+                    passHref
+                  >
+                    <Link underline="none" sx={{ whiteSpace: 'nowrap' }}>
+                      <FontAwesomeIcon
+                        icon={icon || 'question'}
+                        style={{ marginRight: '4px' }}
+                      />{' '}
+                      {setMessage(name)}
+                    </Link>
+                  </NextLink>
+                </ListItem>
+              )}
+            </Fragment>
+          );
+        })}
+      </List>
+    </Card>
+  );
+};
